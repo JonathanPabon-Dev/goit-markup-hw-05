@@ -20,6 +20,10 @@
   margin: 0;
 }
 
+:focus {
+  outline-style: none;
+}
+
 body {
   font-family: var(--main-text-ff), sans-serif;
   color: var(--main-text-color);
@@ -103,11 +107,6 @@ body {
   fill: currentColor;
 }
 
-.link.active,
-.link.contact:hover {
-  color: var(--highlighted-color);
-}
-
 .link.contact:hover {
   fill: var(--highlighted-color);
 }
@@ -152,6 +151,7 @@ body {
     0px 3px 1px 0px rgba(0 0 0 / 0.1);
 }
 
+.link.active,
 .link:hover,
 .link:focus {
   color: var(--highlighted-color);
@@ -313,7 +313,9 @@ body {
 }
 
 .socialnetwork-link:hover,
-.fu-socialnetwork-link:hover {
+.socialnetwork-link:focus,
+.fu-socialnetwork-link:hover,
+.fu-socialnetwork-link:focus {
   background-color: var(--highlighted-color);
   color: var(--white);
 }
@@ -339,7 +341,8 @@ body {
   border-radius: 4px;
 }
 
-.client-link:hover {
+.client-link:hover,
+.client-link:focus {
   color: var(--highlighted-color);
   border-color: var(--highlighted-color);
 }
@@ -437,7 +440,6 @@ body {
 }
 
 .portfolio-card {
-  box-sizing: border-box;
   width: 370px;
   border: 1px solid #eee;
   cursor: pointer;
