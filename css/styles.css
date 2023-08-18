@@ -4,6 +4,7 @@
   --white: #fff;
   --white-o10: #ffffff1a;
   --highlighted-color: #2196f3;
+  --highlighted-bg-card: #2195f3e6;
   --second-text-color: #757575;
   --icon-color-default: #afb1b8;
   --main-text-color: #212121;
@@ -18,10 +19,6 @@
 * {
   padding: 0;
   margin: 0;
-}
-
-:focus {
-  outline-style: none;
 }
 
 body {
@@ -78,6 +75,16 @@ body {
   margin-right: 10px;
 }
 
+.link.active::after {
+  content: '';
+  position: relative;
+  top: 29px;
+  display: block;
+  height: 4px;
+  background-color: var(--highlighted-color);
+  border-radius: 2px;
+}
+
 .logo {
   font-family: var(--second-text-ff);
   color: var(--highlighted-color);
@@ -95,6 +102,8 @@ body {
   text-decoration: none;
   line-height: 1.17;
   letter-spacing: 0.02em;
+  transition: 250ms linear;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .link.contact {
@@ -234,24 +243,13 @@ body {
 
 .service-item {
   display: flex;
-  flex-direction: column-reverse;
-  width: 370px;
-  height: 294px;
-}
-
-.service-item:nth-child(1) {
-  background-image: url(../images/logic.jpg);
-}
-
-.service-item:nth-child(2) {
-  background-image: url(../images/mobile-app.jpg);
-}
-
-.service-item:nth-child(3) {
-  background-image: url(../images/colours-palette.jpg);
+  flex-direction: column;
+  max-height: 294px;
 }
 
 .service-description {
+  position: relative;
+  bottom: 70px;
   padding: 27px 0;
   font-size: 14px;
   letter-spacing: 0.03em;
@@ -310,6 +308,8 @@ body {
   background-color: var(--white);
   color: var(--icon-color-default);
   border-radius: 50px;
+  transition: 250ms linear;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .socialnetwork-link:hover,
@@ -320,13 +320,10 @@ body {
   color: var(--white);
 }
 
-.socialnetwork-icon {
-  width: 20px;
-  fill: currentColor;
-}
-
+.socialnetwork-icon,
 .fu-socialnetwork-icon {
   width: 20px;
+  height: 20px;
   fill: currentColor;
 }
 
@@ -339,6 +336,8 @@ body {
   border: 1px solid var(--icon-color-default);
   color: var(--icon-color-default);
   border-radius: 4px;
+  transition: 250ms linear;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .client-link:hover,
@@ -372,8 +371,39 @@ body {
   color: rgb(255 255 255 / 0.6);
 }
 
+.card-image-cont {
+  width: 370px;
+  height: 294px;
+  overflow: hidden;
+}
+
+.card-image {
+  object-fit: cover;
+}
+
 .card-description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 24px;
+  width: 370px;
+  height: 294px;
+  color: var(--white);
+  background-color: var(--highlighted-bg-card);
+  transition: 250ms linear;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-d-text {
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+}
+
+.card-details {
   padding: 20px 24px;
+  border: 1px solid #eee;
+  border-top: none;
 }
 
 .card-title {
@@ -430,6 +460,8 @@ body {
   background-color: var(--white-o10);
   color: var(--white);
   border-radius: 50px;
+  transition: 250ms linear;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-list {
@@ -441,8 +473,10 @@ body {
 
 .portfolio-card {
   width: 370px;
-  border: 1px solid #eee;
+  height: fit-content;
   cursor: pointer;
+  transition: 250ms linear;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-card:hover,
@@ -451,8 +485,7 @@ body {
     0px 1px 1px 0px rgba(0 0 0 / 0.12);
 }
 
-.card-image {
-  position: relative;
-  left: -1px;
-  top: -1px;
+.portfolio-card:hover .card-description,
+.portfolio-card:focus .card-description {
+  transform: translateY(-100%);
 }
